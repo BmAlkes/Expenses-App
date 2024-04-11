@@ -1,6 +1,7 @@
 import logo from "../public/budgeting_8467260.svg";
 import bg from "../public/313 (1).jpg";
 import BudgetForm from "./components/BudgetForm";
+
 function App() {
   return (
     <>
@@ -8,7 +9,7 @@ function App() {
         <div className="flex items-center justify-center gap-3 mb-5">
           <img src={logo} alt="logo" className="max-h-14" />
           <h1 className="uppercase text-center font-black text-4xl text-white">
-            Expense Planner{" "}
+            Expense Planner
           </h1>
         </div>
         <img
