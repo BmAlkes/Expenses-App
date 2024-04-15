@@ -19,7 +19,10 @@ const BudgetForm = () => {
   return (
     <form className="space-y-5" onSubmit={handleSubmit}>
       <div className="flex flex-col space-y-5">
-        <label htmlFor="budget" className="text-blue-600 font-bold text-center">
+        <label
+          htmlFor="budget"
+          className="text-blue-600 text-3xl font-bold text-center"
+        >
           Set Assumption
         </label>
         <input

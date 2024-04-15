@@ -1,8 +1,16 @@
 import logo from "../public/budgeting_8467260.svg";
 import bg from "../public/313 (1).jpg";
 import BudgetForm from "./components/BudgetForm";
+import { useBudget } from "./hooks/useBudget";
+import { useMemo } from "react";
+import BudgetTracker from "./components/BudgetTracker";
+import ExpenseModal from "./components/ExpanseModel";
+import ExpansesList from "./components/ExpansesList";
 
 function App() {
+  const { state } = useBudget();
+
+  const isValid = useMemo(() => state.budget > 0, [state.budget]);
   return (
     <>
       <header className="bg-blue-600 py-8 max-h-96 mb-4">
@@ -20,8 +28,14 @@ function App() {
       </header>
 
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
-        <BudgetForm />
+        {isValid ? <BudgetTracker /> : <BudgetForm />}
       </div>
+      {isValid && (
+        <main className="max-w-3xl mx-auto py-10">
+          <ExpansesList />
+          <ExpenseModal />
+        </main>
+      )}
     </>
   );
 }
