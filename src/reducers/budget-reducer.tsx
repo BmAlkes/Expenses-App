@@ -20,10 +20,19 @@ export type BudgetState = {
   editingId: Expense["id"];
 };
 
+const initialBudget = (): number => {
+  const localStorageBudget = localStorage.getItem("budget");
+  return localStorageBudget ? +localStorageBudget : 0;
+};
+
+const localStorageExpense = (): Expense[] => {
+  const localStorageExpenses = localStorage.getItem("expenses");
+  return localStorageExpenses ? JSON.parse(localStorageExpenses) : [];
+};
 export const initialState: BudgetState = {
-  budget: 0,
+  budget: initialBudget(),
   modal: false,
-  expenses: [],
+  expenses: localStorageExpense(),
   editingId: "",
 };
 
