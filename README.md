@@ -1,30 +1,43 @@
-# React + TypeScript + Vite
+<h2>🗄️Expenses Control</h2>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p><a href="https://expenses-app-zeta.vercel.app/">Link project</a></p>
 
-Currently, two official plugins are available:
+<img src="https://github.com/BmAlkes/Expenses-App/blob/main/public/Screenshot_44.png?raw=true"/>
+<img src="https://github.com/BmAlkes/Expenses-App/blob/main/public/Screenshot_45.png?raw=true"/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<hr/>
 
-## Expanding the ESLint configuration
+<h2>📝 Description</h2>
+<p>App for Expenses Control </p>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+<hr/>
 
-- Configure the top-level `parserOptions` property like this:
+<h2>📚Functionalities</h2>
+<p>Control expanses during the month</p>
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+  <hr/>
+<h3>🔧
+Technologies used
+Technology</h3>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<p>React, react reducer, tailwind, Context API, swipeable list for react, localStorage </p>
+
+<hr/>
+<h2>🚀 Run Projext</h2>
+<p>To run the repository it is necessary to clone it, issue the following command to start the project: </p>
+
+`git init`
+and after
+`npm run dev`
+
+<hr/>
+  
+<h3>🔜 future implementation</h3>
+
+  <hr/>
+<h3>  
+🤝 Colaboradores</h3>
+  
+<img src="https://www.github.com/BmAlkes.png" width="150px"/>
+BmAlkes
+<h2>🎯 Project Status</h2>
