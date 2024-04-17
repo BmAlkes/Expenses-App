@@ -2,19 +2,28 @@ import { categories } from "../data/categories";
 import DatePicker from "react-date-picker";
 import "react-calendar/dist/Calendar.css";
 import "react-date-picker/dist/DatePicker.css";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { DraftExpanse, Value } from "../types";
 import ErrorMessage from "./ErrorMessage";
 import { useBudget } from "../hooks/useBudget";
 
 const ExpansesForm = () => {
-  const { dispatch } = useBudget();
+  const { dispatch, state } = useBudget();
   const [expense, setExpanse] = useState<DraftExpanse>({
     amount: 0,
     category: "",
     date: new Date(),
     expenseName: "",
   });
+
+  useEffect(() => {
+    if (state.editingId) {
+      const editingExpense = state.expenses.filter(
+        (currentExpense) => currentExpense.id === state.editingId
+      )[0];
+      setExpanse(editingExpense);
+    }
+  }, [state.editingId]);
   const [error, setError] = useState("");
 
   const handleChange = (
@@ -44,8 +53,14 @@ const ExpansesForm = () => {
       return;
     }
     // add new expanses
-
-    dispatch({ type: "add-expanse", payload: { expense } });
+    if (state.editingId) {
+      dispatch({
+        type: "update-expense",
+        payload: { expense: { id: state.editingId, ...expense } },
+      });
+    } else {
+      dispatch({ type: "add-expanse", payload: { expense } });
+    }
 
     setExpanse({
       amount: 0,
@@ -58,7 +73,7 @@ const ExpansesForm = () => {
   return (
     <form className="space-y-5" onSubmit={handleSubmit}>
       <legend className="uppercase text-center text-2xl font-black border-b-2 border-blue-500 py-2">
-        New Expanses
+        {state.editingId ? "Edit expense " : " New Expense"}
       </legend>
       {error && <ErrorMessage>{error}</ErrorMessage>}
       <div className="flex flex-col gap-2">
@@ -124,7 +139,9 @@ const ExpansesForm = () => {
         <input
           type="submit"
           className="bg-blue-600 hover:bg-blue-400 w-full p-2 text-white uppercase font-bold rounded-lg cursor-pointer mt-3"
-          value={"Register expanse"}
+          value={`${
+            state.editingId ? " Save Changes " : "Register New Expanse"
+          }`}
         />
       </div>
     </form>
