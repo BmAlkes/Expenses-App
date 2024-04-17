@@ -6,6 +6,7 @@ import { useEffect, useMemo } from "react";
 import BudgetTracker from "./components/BudgetTracker";
 import ExpenseModal from "./components/ExpanseModel";
 import ExpansesList from "./components/ExpansesList";
+import FilterByCategory from "./components/FilterByCategory";
 
 function App() {
   const { state } = useBudget();
@@ -37,6 +38,8 @@ function App() {
       </div>
       {isValid && (
         <main className="max-w-3xl mx-auto py-10">
+          {state.budget === 0 ? " " : <FilterByCategory />}
+
           <ExpansesList />
           <ExpenseModal />
         </main>
